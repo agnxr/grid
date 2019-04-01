@@ -1,0 +1,43 @@
+//-----------------------------
+// grid
+//-----------------------------
+$column : 12;//
+$gutter : 0;
+
+.container {
+    padding:0 $gutter;
+}
+
+.row {
+    [class*="col-"] {
+        margin-bottom:$gutter * 2;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .row {
+        margin-bottom:$gutter * 2;
+        margin-left:-$gutter;
+        margin-right:-$gutter;
+
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @for $i from 1 through $column {
+            .col-#{$i}-#{$column} {
+                width: (100 / $column * $i) * 1%;
+            }
+        }
+
+        [class*="col-"] {
+            float:left;
+            padding-left:$gutter;
+            padding-right:$gutter;
+            margin-bottom:0;
+            box-sizing: border-box;
+        }
+    }
+}

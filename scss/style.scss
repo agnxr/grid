@@ -1,0 +1,93 @@
+@import "_grid.scss";
+
+/*
+section {
+    width: 100vw;
+    height: 100vh;
+    background: #aaa;
+}
+
+body {
+    margin: 0;
+}
+
+$colors: (
+    color1: pink,
+    color2: red,
+    color3: violet,
+    color4: yellow,
+    color5: green,
+    color6: grey,
+);
+
+.element1 {
+    width: 100px;
+    height: 300px;
+    border: 2px solid red;
+    background-color: map-get($colors, color1);
+}
+
+.element2 {
+    width: 100px;
+    height: 300px;
+    border: 2px solid red;
+    background-color: map-get($colors, color2);
+}
+
+.element3 {
+    width: 100px;
+    height: 300px;
+    border: 2px solid red;
+    background-color: map-get($colors, color3);
+}
+
+.element4 {
+    width: 100px;
+    height: 300px;
+    border: 2px solid red;
+    background-color: map-get($colors, color4);
+}
+
+.element5 {
+    width: 100px;
+    height: 300px;
+    border: 2px solid red;
+    background-color: map-get($colors, color5);
+}
+
+.element6 {
+    width: 100px;
+    height: 300px;
+    border: 2px solid red;
+    background-color: map-get($colors, color6);
+}
+
+*/
+
+@import "_grid.scss";
+$colors: ( color1: blue, color2: green, color3: yellow, color4: pink, color5: purple, color6: black, );
+
+@mixin makeLighter($color) {
+    $lighter: lighten($color, 30%);
+
+    &:hover {
+        background-color: $lighter;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    background: navy;
+}
+@for $i from 1 through 6 {
+    .section#{$i} {
+        height: 100vh;
+        $kolory: map-get($colors, color#{$i});
+        background-color: $kolory;
+        @include makeLighter($kolory);
+    }
+}
